@@ -1,8 +1,44 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Initializing folder structure
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Setting up Vundle - the vim plugin bundler
+" Copied from http://www.erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
+let iCanHazVundle=1
+let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+if !filereadable(vundle_readme)
+	echo "Installing Vundle.."
+	echo ""
+	silent !mkdir -p ~/.vim/bundle
+	silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+	let iCanHazVundle=0
+endif
+
+" Creating backup folders
+" Copied from http://stackoverflow.com/questions/4331776/change-vim-swap-backup-undo-file-name#9528322
+if isdirectory('~/.vim/.backup') == 0
+  :silent !mkdir -p ~/.vim/.backup >/dev/null 2>&1
+endif
+
+if isdirectory('~/.vim/.undo') == 0
+  :silent !mkdir -p ~/.vim/.undo >/dev/null 2>&1
+endif
+
+if isdirectory('~/.vim/.swap') == 0
+  :silent !mkdir -p ~/.vim/.swap >/dev/null 2>&1
+endif
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Bundles
+""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " let Vundle manage Vundle
 " required! 
@@ -38,10 +74,19 @@ Bundle 'honza/vim-snippets'
 " Bundle 'rstacruz/sparkup.git', {'rtp': 'vim/'}
 Bundle 'mattn/emmet-vim'
 
+" Initialize Vundle
+if iCanHazVundle == 0
+	echo "Installing Bundles, please ignore key map error messages"
+	echo ""
+	:BundleInstall
+endif
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Default settings
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
 filetype plugin indent on     " required!
-
-
-" Configuration starts
 
 set number
 
@@ -76,11 +121,16 @@ endif
 set hidden
 
 
-"Indentation settings
-set expandtab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
+"Default Indentation settings
+set noexpandtab
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+
+"Indentation based on filetypes
+autocmd FileType html set tabstop=2|set shiftwidth=2|set softtabstop=2
+autocmd FileType php set tabstop=4|set shiftwidth=4|set softtabstop=4
+
 
 set ignorecase  " ignore case while searching
 set smartcase   " ignore case if search pattern is all lowercase, case-sensitive otherwise
@@ -98,14 +148,31 @@ set splitright   " Split the window right
 "Show line numbers
 set number
 
+" Create backup, swp, undo files in less annoying folder
+set undodir=~/.vim/.undo//
+set backupdir=~/.vim/.backup//
+set directory=~/.vim/.swp//
+
+" Enable backups
+set backup
+set undofile
+set swapfile
+
+" Write as sudo
+cmap w!! w !sudo tee > /dev/null %
+
 "Better window navigation
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
-
 let mapleader=";"
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugin settings
+""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "NerdTree settings
 "autocmd VimEnter * NERDTree "Show NERDTree on statup of VIM
@@ -121,13 +188,6 @@ let g:airline_powerline_fonts = 1
 " Indent guides
 let g:indent_guides_guide_size = 1
 
-" Create backup, swp, undo files in less annoying folder
-set undodir=~/.vim/.undo//
-set backupdir=~/.vim/.backup//
-set directory=~/.vim/.swp//
-
-" Write as sudo
-cmap w!! w !sudo tee > /dev/null %
 
 " Syntastic
 let g:syntastic_javascript_checkers = ['jslint']
@@ -136,3 +196,4 @@ let g:syntastic_javascript_checkers = ['jslint']
 " Sparkup
 let g:sparkupExecuteMapping = '<c-e>'
 let g:sparkupNextMapping = '<c-ee>'
+
