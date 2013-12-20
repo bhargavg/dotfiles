@@ -100,7 +100,15 @@ if has("gui_running")
   set background=dark
   colorscheme molokai
 
-  set guifont=Inconsolata-dz\ for\ Powerline:h12
+  " Set font based on OS
+  if has("gui_gtk2")
+	set guifont=Inconsolata-dz\ for\ Powerline\ 10
+  elseif has("gui_macvim")
+	set guifont=Inconsolata-dz\ for\ Powerline:h12
+  elseif has("gui_win32")
+    set guifont=Inconsolata-dz\ for\ Powerline:h11
+  endif
+
 
   "Hide scrollbars
   set guioptions-=b "bottom scrollbar
