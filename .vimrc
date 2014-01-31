@@ -94,6 +94,7 @@ set number
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
+let g:ctrlp_working_path_mode = ''
 
 if has("gui_running")
 
@@ -204,4 +205,3 @@ let g:syntastic_javascript_checkers = ['jslint']
 " Sparkup
 let g:sparkupExecuteMapping = '<c-e>'
 let g:sparkupNextMapping = '<c-ee>'
-
