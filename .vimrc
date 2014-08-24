@@ -11,11 +11,11 @@ filetype off                   " required!
 let iCanHazVundle=1
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
 if !filereadable(vundle_readme)
-	echo "Installing Vundle.."
-	echo ""
-	silent !mkdir -p ~/.vim/bundle
-	silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-	let iCanHazVundle=0
+    echo "Installing Vundle.."
+    echo ""
+    silent !mkdir -p ~/.vim/bundle
+    silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+    let iCanHazVundle=0
 endif
 
 " Creating backup folders
@@ -65,6 +65,8 @@ Bundle 'scrooloose/syntastic'
 
 Bundle 'godlygeek/tabular'
 
+Bundle 'rking/ag.vim'
+
 " Depenency for snipmate
 Bundle 'tlib'
 Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -77,9 +79,9 @@ Bundle 'mattn/emmet-vim'
 
 " Initialize Vundle
 if iCanHazVundle == 0
-	echo "Installing Bundles, please ignore key map error messages"
-	echo ""
-	:BundleInstall
+    echo "Installing Bundles, please ignore key map error messages"
+    echo ""
+    :BundleInstall
 endif
 
 
@@ -104,9 +106,9 @@ if has("gui_running")
 
   " Set font based on OS
   if has("gui_gtk2")
-	set guifont=Inconsolata-dz\ for\ Powerline\ 10
+    set guifont=Inconsolata-dz\ for\ Powerline\ 10
   elseif has("gui_macvim")
-	set guifont=Inconsolata-dz\ for\ Powerline:h12
+    set guifont=Inconsolata-dz\ for\ Powerline:h12
   elseif has("gui_win32")
     set guifont=Inconsolata-dz\ for\ Powerline:h11
   endif
@@ -132,7 +134,7 @@ set hidden
 
 
 "Default Indentation settings
-set noexpandtab
+set expandtab
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
