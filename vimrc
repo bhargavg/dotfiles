@@ -20,16 +20,16 @@ endif
 
 " Creating backup folders
 " Copied from http://stackoverflow.com/questions/4331776/change-vim-swap-backup-undo-file-name#9528322
-if isdirectory('~/.vim/.backup') == 0
-  :silent !mkdir -p ~/.vim/.backup >/dev/null 2>&1
+if isdirectory('~/.vim/backup') == 0
+  :silent !mkdir -p ~/.vim/backup >/dev/null 2>&1
 endif
 
-if isdirectory('~/.vim/.undo') == 0
-  :silent !mkdir -p ~/.vim/.undo >/dev/null 2>&1
+if isdirectory('~/.vim/undo') == 0
+  :silent !mkdir -p ~/.vim/undo >/dev/null 2>&1
 endif
 
-if isdirectory('~/.vim/.swap') == 0
-  :silent !mkdir -p ~/.vim/.swap >/dev/null 2>&1
+if isdirectory('~/.vim/swap') == 0
+  :silent !mkdir -p ~/.vim/swap >/dev/null 2>&1
 endif
 
 set rtp+=~/.vim/bundle/vundle/
@@ -161,9 +161,9 @@ set splitright   " Split the window right
 set number
 
 " Create backup, swp, undo files in less annoying folder
-set undodir=~/.vim/.undo//
-set backupdir=~/.vim/.backup//
-set directory=~/.vim/.swp//
+set undodir=~/.vim/undo//
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swp//
 
 " Enable backups
 set backup
