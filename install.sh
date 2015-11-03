@@ -14,6 +14,8 @@ VIMDIR_PATH="$HOME/.vim"
 BACKUP_SUFFIX=$(date +%Y%m%d_%H%M%S)
 PWD=$(pwd)
 
+echo "Configuring vim...."
+
 if [ -e "$VIMRC_PATH" ]
 then
     VIMRC_BACKUP_PATH="$VIMRC_PATH-$BACKUP_SUFFIX"
@@ -31,3 +33,6 @@ fi
 
 ln -s "$PWD/vimrc" $VIMRC_PATH
 ln -s "$PWD/vim" $VIMDIR_PATH
+
+echo "Your vim is successfully configured. On the next launch,"
+echo "all the required plugins will be installed automagically"
