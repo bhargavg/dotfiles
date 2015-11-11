@@ -57,6 +57,7 @@ Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-sensible'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-vinegar'
+Bundle 'tpope/vim-rails'
 Bundle 'Indent-Guides'
 Bundle 'jQuery'
 Bundle 'tomtom/tcomment_vim'
@@ -140,8 +141,9 @@ set softtabstop=4
 set tabstop=4
 
 "Indentation based on filetypes
-autocmd FileType html set tabstop=2|set shiftwidth=2|set softtabstop=2
-autocmd FileType php set tabstop=4|set shiftwidth=4|set softtabstop=4
+autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType php  setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
 
 set ignorecase  " ignore case while searching
@@ -150,7 +152,6 @@ set hlsearch    " highlight search terms
 
 
 set showcmd " show the intermediate commands
-
 
 set shortmess=atI             " shortens messages
 
