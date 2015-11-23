@@ -68,6 +68,8 @@ Bundle 'godlygeek/tabular'
 
 Bundle 'rking/ag.vim'
 
+Bundle 'christoomey/vim-tmux-navigator'
+
 " Depenency for snipmate
 Bundle 'tlib'
 Bundle 'MarcWeber/vim-addon-mw-utils'
