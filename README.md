@@ -1,31 +1,19 @@
-My Vim Configuration
-===================
+# My Dot files
 
-Installation
-------------
+## Installation
 ```bash
 git clone https://github.com/bhargavg/dotfiles YOURPATH
 cd YOURPATH
 ./install.sh
 ```
 
-> This config requires [InconsolataDz](https://github.com/powerline/fonts) font for status line to work properly. 
+### Vim
+- Font: [Fira Code](https://github.com/tonsky/FiraCode)
+- Plugin Manager: [Vim Plug](https://github.com/junegunn/vim-plug)
 
-> For using Vim in terminal, terminal font must be set to `InconsolataDz`. No need to change any settings if you are using MacVim/GVim.
-
-
-Plugins included
-----------------
-  * Ctrlp
-  * Nerdtree
-  * Vim-airline
-  * Vim-sensible
-  * Vim-surround
-  * Indent-Guides
-  * jQuery
-  * Tcomment
-  * Syntastic
-  * Tabular
-  * Snipmate
-  * Emmet
-  * _and more..._
+### [Homebrew](https://github.com/Homebrew/brew)
+```bash
+$ brew bundle dump   # Creates Brewfile which contains all installed pkgs
+$ # On another machine, from directory that contains this Brewfile
+$ brew bundle        # Install the pkgs from Bundlefile
+```

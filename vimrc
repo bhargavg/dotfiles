@@ -6,16 +6,11 @@ filetype off                   " required!
 " Initializing folder structure
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
-" Setting up Vundle - the vim plugin bundler
-" Copied from http://www.erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
-let iCanHazVundle=1
-let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
-if !filereadable(vundle_readme)
-    echo "Installing Vundle.."
-    echo ""
-    silent !mkdir -p ~/.vim/bundle
-    silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-    let iCanHazVundle=0
+" Setup vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
 " Creating backup folders
@@ -28,64 +23,54 @@ if isdirectory('~/.vim/undo') == 0
   :silent !mkdir -p ~/.vim/undo >/dev/null 2>&1
 endif
 
-if isdirectory('~/.vim/swap') == 0
-  :silent !mkdir -p ~/.vim/swap >/dev/null 2>&1
+if isdirectory('~/.vim/swp') == 0
+  :silent !mkdir -p ~/.vim/swp >/dev/null 2>&1
 endif
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
+call plug#begin('~/.vim/plugged')
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
-" Bundles
+" Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""
-
-" let Vundle manage Vundle
-" required! 
-Bundle 'gmarik/vundle'
 
 " Color schemes
-Bundle 'molokai'
-Bundle 'nelstrom/vim-mac-classic-theme'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'gmarik/ingretu'
+Plug 'molokai'
+Plug 'nelstrom/vim-mac-classic-theme'
+Plug 'altercation/vim-colors-solarized'
+Plug 'gmarik/ingretu'
 
 " Plugins from GIT
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'bling/vim-airline'
-Bundle 'tpope/vim-sensible'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-vinegar'
-Bundle 'tpope/vim-rails'
-Bundle 'Indent-Guides'
-Bundle 'jQuery'
-Bundle 'tomtom/tcomment_vim'
+Plug 'kien/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'bling/vim-airline'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-rails'
+Plug 'Indent-Guides'
+Plug 'jQuery'
+Plug 'tomtom/tcomment_vim'
 
-Bundle 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 
-Bundle 'godlygeek/tabular'
+Plug 'godlygeek/tabular'
 
-Bundle 'rking/ag.vim'
+Plug 'rking/ag.vim'
 
-Bundle 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-navigator'
 
 " Depenency for snipmate
-Bundle 'tlib'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'garbas/vim-snipmate'
-Bundle 'honza/vim-snippets'
+Plug 'tlib'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+
+Plug 'keith/swift.vim'
 
 " Sparkup
-" Bundle 'rstacruz/sparkup.git', {'rtp': 'vim/'}
-Bundle 'mattn/emmet-vim'
+" Plugin 'rstacruz/sparkup.git', {'rtp': 'vim/'}
+Plug 'mattn/emmet-vim'
 
-" Initialize Vundle
-if iCanHazVundle == 0
-    echo "Installing Bundles, please ignore key map error messages"
-    echo ""
-    :BundleInstall
-endif
+call plug#end()
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -109,11 +94,12 @@ if has("gui_running")
 
   " Set font based on OS
   if has("gui_gtk2")
-    set guifont=Inconsolata-dz\ for\ Powerline\ 10
+    set guifont=Fira\ Code 10
   elseif has("gui_macvim")
-    set guifont=Inconsolata-dz\ for\ Powerline:h12
+    set macligatures
+    set guifont=Fira\ Code:h12
   elseif has("gui_win32")
-    set guifont=Inconsolata-dz\ for\ Powerline:h11
+    set guifont=Fira\ Code:h11
   endif
 
 
@@ -211,3 +197,7 @@ let g:syntastic_javascript_checkers = ['jslint']
 " Sparkup
 let g:sparkupExecuteMapping = '<c-e>'
 let g:sparkupNextMapping = '<c-ee>'
+
+
+autocmd VimEnter * highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+autocmd VimEnter * match ExtraWhitespace /\s\+\%#\@<!$/
