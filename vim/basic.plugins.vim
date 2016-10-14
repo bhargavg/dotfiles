@@ -12,9 +12,8 @@ Plug 'godlygeek/tabular'
 
 Plug 'rking/ag.vim'
 
+" This should have accompanying tmux config file to work properly
 Plug 'christoomey/vim-tmux-navigator'
-
-Plug 'keith/swift.vim'
 
 " For threading and stuff
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }

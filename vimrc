@@ -25,7 +25,8 @@ source ~/.vim/basic.folders.vim
 call plug#begin('~/.vim/plugged')
 
 source ~/.vim/basic.plugins.vim
-source ~/.vim/lang.haskell.plugins.vim
+source ~/.vim/lang.haskell.vim
+source ~/.vim/lang.swift.vim
 source ~/.vim/plugin.airline.vim
 source ~/.vim/plugin.ctrlp.vim
 source ~/.vim/plugin.nerdtree.vim
