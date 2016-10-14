@@ -27,7 +27,7 @@ backup () {
             mv "$1" "$BACKUP_PATH"
         fi
     fi
-    
+
     return 1
 }
 
@@ -53,8 +53,8 @@ echo "Your vim is successfully configured. On the next launch,"
 echo "all the required plugins will be installed automagically"
 echo "=====================VIM End====================="
 
-echo 
-echo 
+echo
+echo
 
 
 ### Install pgcli config
@@ -68,8 +68,8 @@ ln -s "$PWD/pgcli/config" $PGCLI_PATH
 echo "Done!"
 echo "====================PGCLI End===================="
 
-echo 
-echo 
+echo
+echo
 
 ### Install gemrc
 GEMRC_PATH="$HOME/.gemrc"
