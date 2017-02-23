@@ -14,8 +14,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 
-source ~/.vim/basic.config.vim
-source ~/.vim/basic.folders.vim
+source ~/.vim/config/basic.config.vim
+source ~/.vim/config/basic.folders.vim
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -24,13 +24,13 @@ source ~/.vim/basic.folders.vim
 
 call plug#begin('~/.vim/plugged')
 
-source ~/.vim/basic.plugins.vim
-source ~/.vim/lang.haskell.vim
-source ~/.vim/lang.swift.vim
-source ~/.vim/plugin.airline.vim
-source ~/.vim/plugin.ctrlp.vim
-source ~/.vim/plugin.nerdtree.vim
-source ~/.vim/plugin.syntastic.vim
+source ~/.vim/config/basic.plugins.vim
+source ~/.vim/config/lang.haskell.vim
+source ~/.vim/config/lang.swift.vim
+source ~/.vim/config/plugin.airline.vim
+source ~/.vim/config/plugin.ctrlp.vim
+source ~/.vim/config/plugin.nerdtree.vim
+source ~/.vim/config/plugin.syntastic.vim
 
 call plug#end()
 
@@ -41,22 +41,19 @@ call plug#end()
 
 filetype plugin indent on     " required!
 
+colorscheme OceanicNext
 
-if has("gui_running")
 
-  set background=dark
-  colorscheme molokai
-
-  " Set font based on OS
-  if has("gui_gtk2")
+" Set font based on OS
+if has("gui_gtk2")
     set guifont=Fira\ Code 10
-  elseif has("gui_macvim")
+elseif has("gui_macvim")
     set macligatures
     set guifont=Fira\ Code:h12
-  elseif has("gui_win32")
-    set guifont=Fira\ Code:h11
-  endif
+endif
 
+if has("gui_running")
+  set background=dark
 
   "Hide scrollbars
   set guioptions-=b "bottom scrollbar
@@ -65,7 +62,6 @@ if has("gui_running")
   set guioptions-=L "left scrollbar in vertical split window
   set guioptions-=l "left scrollbar
   set guioptions-=T "toolbar
-
 
   "Show cursor X - wire
   " set cursorline
@@ -76,7 +72,6 @@ if has("gui_running")
 endif
 
 
+" Highlight empty space with darkgreen color
 autocmd VimEnter * highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 autocmd VimEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-
-

@@ -1,8 +1,6 @@
 " Color schemes
-Plug 'molokai'
-Plug 'nelstrom/vim-mac-classic-theme'
 Plug 'altercation/vim-colors-solarized'
-Plug 'gmarik/ingretu'
+Plug 'mhartington/oceanic-next'
 
 " Plugins from GIT
 Plug 'tpope/vim-sensible'
