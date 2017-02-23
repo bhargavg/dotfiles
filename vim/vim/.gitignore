@@ -4,3 +4,7 @@ plugged
 backup/*
 undo/*
 swp/*
+
+!backup/README.md
+!undo/README.md
+!swp/README.md
