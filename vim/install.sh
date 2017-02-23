@@ -1,21 +1,12 @@
 #!/bin/bash
 ### Install Vim config
-if [ -z "$ROOT_DIR" ]
-then
-    echo "Cannot invoke this script directly"
-    exit 2
-fi
 
-VIMRC_PATH="$HOME/.vimrc"
-VIMDIR_PATH="$HOME/.vim"
+die_if_no_root_dir
 
 echo "====================VIM Start===================="
 
-die_if_exists "$VIMRC_PATH"
-die_if_exists "$VIMDIR_PATH"
-
-ln -s "$ROOT_DIR/vim/vimrc" "$VIMRC_PATH"
-ln -s "$ROOT_DIR/vim/vim" "$VIMDIR_PATH"
+link_file "$ROOT_DIR/vim/vimrc" "$HOME/.vimrc"
+link_file "$ROOT_DIR/vim/vim"   "$HOME/.vim"
 
 echo "Done!!!"
 echo "Your vim is successfully configured. On the next launch,"

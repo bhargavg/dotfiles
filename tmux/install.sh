@@ -1,18 +1,11 @@
 #!/bin/bash
 ### Install tmux config
-if [ -z "$ROOT_DIR" ]
-then
-    echo "Cannot invoke this script directly"
-    exit 2
-fi
 
-TMUXRC_PATH="$HOME/.tmux.conf"
+die_if_no_root_dir
 
 echo "===================TMUX Start===================="
 
-die_if_exists "$TMUXRC_PATH"
-
-ln -s "$ROOT_DIR/tmux/tmux.conf" "$TMUXRC_PATH"
+link_file "$ROOT_DIR/tmux/tmux.conf" "$HOME/.tmux.conf"
 
 echo "Done!!!"
 echo "====================TMUX End====================="

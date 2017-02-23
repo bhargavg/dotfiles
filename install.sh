@@ -20,6 +20,21 @@ die_if_exists() {
     fi
 }
 
+die_if_no_root_dir() {
+    if [ -z "$ROOT_DIR" ]
+    then
+        echo "Cannot invoke this script directly"
+        exit 2
+    fi
+}
+
+link_file () {
+    die_if_exists $2
+    ln -s $1 $2
+}
+
+
+### Installation
 echo "Starting the configuration:"
 
 for d in *; do

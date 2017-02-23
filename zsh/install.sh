@@ -1,10 +1,7 @@
 #!/bin/bash
 ### Install zsh config
-if [ -z "$ROOT_DIR" ]
-then
-    echo "Cannot invoke this script directly"
-    exit 2
-fi
+
+die_if_no_root_dir
 
 echo "====================ZSH Start===================="
 

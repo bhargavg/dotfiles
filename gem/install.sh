@@ -1,17 +1,11 @@
 #!/bin/bash
 ### Install gemrc config
-if [ -z "$ROOT_DIR" ]
-then
-    echo "Cannot invoke this script directly"
-    exit 2
-fi
 
-GEMRC_PATH="$HOME/.gemrc"
+die_if_no_root_dir
 
 echo "====================Gems Start===================="
 
-die_if_exists "$GEMRC_PATH"
-ln -s "$ROOT_DIR/gem/gemrc" "$GEMRC_PATH"
+link_file "$ROOT_DIR/gem/gemrc" "$HOME/.gemrc"
 
 echo "Done!!!"
 echo "=====================Gems End====================="
