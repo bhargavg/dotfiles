@@ -7,7 +7,7 @@ cd YOURPATH
 ./install.sh
 ```
 
-### Vim
+### Vim/NVim
 - Font: [Fira Code](https://github.com/tonsky/FiraCode)
 - Plugin Manager: [Vim Plug](https://github.com/junegunn/vim-plug)
 
