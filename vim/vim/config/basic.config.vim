@@ -1,8 +1,7 @@
 "Semi-colon is the leader key
 let mapleader=";"
 
-set number "Show line numbers
-
+set relativenumber number "Show line numbers
 
 set hidden "Allows to open a new file without closing the current edited one
 
