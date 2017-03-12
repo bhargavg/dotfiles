@@ -10,6 +10,8 @@ Plug 'godlygeek/tabular'
 
 Plug 'rking/ag.vim'
 
+Plug 'mhinz/vim-startify'
+
 " This should have accompanying tmux config file to work properly
 Plug 'christoomey/vim-tmux-navigator'
 
