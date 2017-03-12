@@ -3,6 +3,9 @@ let mapleader=";"
 
 set relativenumber number "Show line numbers
 
+"Enable true colors
+set termguicolors
+
 set hidden "Allows to open a new file without closing the current edited one
 
 "Default Indentation settings
