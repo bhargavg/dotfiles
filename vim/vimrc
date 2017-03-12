@@ -44,7 +44,6 @@ filetype plugin indent on     " required!
 
 colorscheme OceanicNext
 
-
 " Set font based on OS
 if has("gui_gtk2")
     set guifont=Fira\ Code 10
@@ -68,11 +67,5 @@ if has("gui_running")
   " set cursorline
   " set cursorcolumn
 
-  " Silence the stupid bell
-  set vb t_vb=
 endif
 
-
-" Highlight empty space with darkgreen color
-autocmd VimEnter * highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
-autocmd VimEnter * match ExtraWhitespace /\s\+\%#\@<!$/

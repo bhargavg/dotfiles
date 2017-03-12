@@ -16,6 +16,8 @@ autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType php  setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType ruby setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
+" Silence the stupid bell
+set vb t_vb=
 
 set ignorecase  " ignore case while searching
 set smartcase   " ignore case if search pattern is all lowercase, case-sensitive otherwise
@@ -37,3 +39,6 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
+" Highlight empty space with darkgreen color
+autocmd VimEnter * highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+autocmd VimEnter * match ExtraWhitespace /\s\+\%#\@<!$/
