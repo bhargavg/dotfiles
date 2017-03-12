@@ -37,6 +37,12 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+"Resize windows
+nnoremap <silent> <A-h> <C-w><
+nnoremap <silent> <A-j> <C-W>-
+nnoremap <silent> <A-k> <C-W>+
+nnoremap <silent> <A-l> <C-w>>
+
 "Indentation based on filetypes
 autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd FileType php  setlocal tabstop=2 shiftwidth=2 softtabstop=2
