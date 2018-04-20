@@ -1,5 +1,5 @@
 #!/bin/bash
-### Install nvim config
+### Install brew and its packages
 
 die_if_no_conf_src_set
 
