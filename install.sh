@@ -4,7 +4,7 @@
 #  Created     :  2015-11-03
 #
 #  Usage       : ./install.sh
-#  Description :  Setup vim and other utilities
+#  Description :  Setup new Mac machine
 ######################################################################
 
 
@@ -37,12 +37,10 @@ link_file () {
 ### Installation
 echo "Starting the configuration:"
 
-for d in *; do
-  if [ -d "$d" ]; then
-    # shellcheck source=/dev/null
-    source "$d/install.sh"
-    echo -e '\n'
-  fi
+find "$CONF_SRC_DIR" -not -path '*/\.*' -type d -depth 1 | while read -r dir; do
+  # shellcheck source=/dev/null
+  source "$dir/install.sh"
+  echo -e '\n'
 done
 
 echo "Success!!!"
