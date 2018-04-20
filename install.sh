@@ -40,6 +40,8 @@ echo "Starting the configuration:"
 find "$CONF_SRC_DIR" -not -path '*/\.*' -type d -depth 1 | while read -r dir; do
   # shellcheck source=/dev/null
   source "$dir/install.sh"
+  # shellcheck source=/dev/null
+  source "$dir/post_install.sh"
   echo -e '\n'
 done
 
