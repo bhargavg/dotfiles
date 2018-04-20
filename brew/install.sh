@@ -10,7 +10,11 @@ if command -v brew >/dev/null 2>&1; then
 else
     echo 'Installing...'
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    echo "Done!!!"
+    echo 'Done!!!'
+
+    echo 'Installing packages from Brewfile...'
+    brew bundle install --verbose --file="$CONF_SRC_DIR/00_brew/Brewfile"
+    echo 'Done!!!'
 fi
 
 echo "=====================Homebrew End====================="
