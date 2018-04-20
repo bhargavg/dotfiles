@@ -9,8 +9,8 @@
 
 
 ### Utils
-export ROOT_DIR
-ROOT_DIR=$(pwd)
+export CONF_SRC_DIR
+CONF_SRC_DIR=$(pwd)
 
 die_if_exists() {
     if [ -d "$1" ] || [ -f "$1" ]
@@ -20,8 +20,8 @@ die_if_exists() {
     fi
 }
 
-die_if_no_root_dir() {
-    if [ -z "$ROOT_DIR" ]
+die_if_no_conf_src_set() {
+    if [ -z "$CONF_SRC_DIR" ]
     then
         echo "Cannot invoke this script directly"
         exit 2
@@ -29,8 +29,8 @@ die_if_no_root_dir() {
 }
 
 link_file () {
-    die_if_exists $2
-    ln -s $1 $2
+    die_if_exists "$2"
+    ln -s "$1" "$2"
 }
 
 
@@ -39,8 +39,9 @@ echo "Starting the configuration:"
 
 for d in *; do
   if [ -d "$d" ]; then
+    # shellcheck source=/dev/null
     source "$d/install.sh"
-    echo -e "\n"
+    echo -e '\n'
   fi
 done
 

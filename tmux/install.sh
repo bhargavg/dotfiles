@@ -1,11 +1,11 @@
 #!/bin/bash
 ### Install tmux config
 
-die_if_no_root_dir
+die_if_no_conf_src_set
 
 echo "===================TMUX Start===================="
 
-link_file "$ROOT_DIR/tmux/tmux.conf" "$HOME/.tmux.conf"
+link_file "$CONF_SRC_DIR/tmux/tmux.conf" "$HOME/.tmux.conf"
 
 echo "Done!!!"
 echo "====================TMUX End====================="

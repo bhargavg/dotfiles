@@ -1,11 +1,11 @@
 #!/bin/bash
 ### Install ghci config
 
-die_if_no_root_dir
+die_if_no_conf_src_set
 
 echo "===================GHCI Start===================="
 
-link_file "$ROOT_DIR/ghci/ghci" "$HOME/.ghci"
+link_file "$CONF_SRC_DIR/ghci/ghci" "$HOME/.ghci"
 
 echo "Done!!!"
 echo "====================GHCI End====================="
