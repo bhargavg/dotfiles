@@ -1,0 +1,10 @@
+config/fish/fishd.*
+config/fish/conf.d/*
+config/fish/functions/*
+config/fish/completions/*
+
+!config/fish/conf.d/README.md
+!config/fish/functions/README.md
+!config/fish/completions/README.md
+!config/fish/functions/fish_prompt.fish
+!config/fish/functions/fish_user_key_bindings.fish
