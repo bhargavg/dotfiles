@@ -5,7 +5,7 @@ die_if_no_conf_src_set
 
 echo "====================Gems Start===================="
 
-link_file "$CONF_SRC_DIR/gem/gemrc" "$HOME/.gemrc"
+link_file "$CONF_SRC_DIR/060_gem/gemrc" "$HOME/.gemrc"
 
 echo "Done!!!"
 echo "=====================Gems End====================="

@@ -33,15 +33,17 @@ link_file () {
     ln -s "$1" "$2"
 }
 
+export -f die_if_exists
+export -f die_if_no_conf_src_set
+export -f link_file
+
 
 ### Installation
 echo "Starting the configuration:"
 
-find "$CONF_SRC_DIR" -not -path '*/\.*' -type d -depth 1 | while read -r dir; do
-
-    for file in "$dir/install.sh" "$dir/post_install.sh"; do
-        # shellcheck source=/dev/null
-        [[ -f $file ]] && source "$file"
+find "$CONF_SRC_DIR" -not -path '*/\.*' -type d -depth 1 | sort | while read -r dir; do
+    find "$dir" -depth 1 -type f \( -name '*.sh' -o -name '*.fish' \) | sort | while read -r file; do
+        [[ -f $file ]] && "$file"
     done
 done
 

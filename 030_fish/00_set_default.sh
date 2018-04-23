@@ -1,7 +1,7 @@
 #!/bin/bash
 ### Configure fish shell
 
-# die_if_no_conf_src_set
+die_if_no_conf_src_set
 
 echo "Setting fish as default shell:"
 echo "=============================="
@@ -16,7 +16,7 @@ fi
 
 echo "Linking the config directory"
 mkdir -p ~/.config
-ln -sF "$CONF_SRC_DIR/fish/config/fish" ~/.config/fish
+ln -sF "$CONF_SRC_DIR/030_fish/config/fish" ~/.config/fish
 
-echo "Running chsh"
-chsh -s "$FISH_PATH"
+# echo "Running chsh"
+# chsh -s "$FISH_PATH"

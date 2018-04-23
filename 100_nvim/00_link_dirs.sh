@@ -7,7 +7,7 @@ echo "====================NVIM Start===================="
 
 NVIMDIR_PATH="$HOME/.config"
 mkdir -p "$NVIMDIR_PATH"
-link_file "$CONF_SRC_DIR/vim/vim" "$NVIMDIR_PATH/nvim"
+link_file "$CONF_SRC_DIR/090_vim/vim" "$NVIMDIR_PATH/nvim"
 
 echo "Done!!!"
 echo "Your nvim is successfully configured. On the next launch,"
